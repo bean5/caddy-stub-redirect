@@ -21,4 +21,9 @@
     </body>
     </html>
     `
+
+    # Health check endpoint
+    route /healthcheck {
+        respond "ok" 200
+    }
 }

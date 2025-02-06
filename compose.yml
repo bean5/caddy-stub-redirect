@@ -5,6 +5,17 @@ services:
     environment:
       - REDIRECT_TIME=10
       - REDIRECT_URL=https://lumen8labs.com
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 3s
+      test:
+        [
+          "CMD",
+          "test",
+          "$(curl -s -o /dev/null -w '%{http_code}' http://localhost/healthcheck) = 200",
+        ]
+      timeout: 10s
     image: caddy:latest
     ports:
       - "80:80"

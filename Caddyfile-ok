@@ -1,3 +1,8 @@
 :80 {
     respond "ok"
+
+    # Health check endpoint
+    route /healthcheck {
+        respond "ok" 200
+    }
 }

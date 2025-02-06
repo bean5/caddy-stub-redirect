@@ -1,3 +1,8 @@
 :80 {
     redir {env.REDIRECT_URL} 301
+
+    # Health check endpoint
+    route /healthcheck {
+        respond "ok" 200
+    }
 }
