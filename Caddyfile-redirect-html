@@ -1,0 +1,24 @@
+:80 {
+    header Content-Type text/html
+    header Refresh "{env.REDIRECT_TIME};url={env.REDIRECT_URL}"
+
+    respond `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="{env.REDIRECT_TIME};url={env.REDIRECT_URL}">
+        <title>Redirecting...</title>
+        <script type="text/javascript">
+            setTimeout(function() {
+                window.location.href = "{env.REDIRECT_URL}";
+            }, {env.REDIRECT_TIME} * 1000);
+        </script>
+    </head>
+    <body>
+        <p>Redirecting in {env.REDIRECT_TIME} seconds to <a href="{env.REDIRECT_URL}">{env.REDIRECT_URL}</a>...</p>
+    </body>
+    </html>
+    `
+}

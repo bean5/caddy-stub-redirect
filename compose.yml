@@ -1,0 +1,17 @@
+name: caddy-redirect
+
+services:
+  redirect:
+    environment:
+      - REDIRECT_TIME=10
+      - REDIRECT_URL=https://lumen8labs.com
+    image: caddy:latest
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      # - ./Caddyfile-blank:/etc/caddy/Caddyfile
+      # - ./Caddyfile-ok:/etc/caddy/Caddyfile
+      - ./Caddyfile-redirect-html:/etc/caddy/Caddyfile
+      # - ./Caddyfile-redirect-permanent:/etc/caddy/Caddyfile
+      # - ./Caddyfile-redirect-temporary:/etc/caddy/Caddyfile

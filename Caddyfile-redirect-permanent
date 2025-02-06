@@ -1,0 +1,3 @@
+:80 {
+    redir {env.REDIRECT_URL} 301
+}
